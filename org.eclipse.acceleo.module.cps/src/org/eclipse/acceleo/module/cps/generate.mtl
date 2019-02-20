@@ -26,13 +26,15 @@
 	[/for]
 	[for (task : EEnum | cps.eClass().ePackage.eClassifiers -> filter(EEnum))]
 		enum [task.name /] {
-			[for (literal : EEnumLiteral | task.eLiterals)]
-				[literal /],
+			[for (literal : EEnumLiteral | task.eLiterals) separator(', ')]
+				[literal /]
 			[/for]		
 		}	
 	[/for]
-	[for (task : EClass | cps.eClass().ePackage.eClassifiers -> filter(EClass))]
-		
+	[for (class : EClass | cps.eClass().ePackage.eClassifiers -> filter(EClass))]
+		[if (class.abstract)] abstract [/if] sig [class.name /] [if (class.eSuperTypes->notEmpty())] extends [for (superType : EClass | class.eSuperTypes) separator(', ')] [superType.name /] [/for] [/if] {
+			
+		}		
 	[/for]
 [/file]
 [/template]
