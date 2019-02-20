@@ -84,6 +84,65 @@ public class CpsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CpsPackage.SENSOR: {
+				Sensor sensor = (Sensor)theEObject;
+				T result = caseSensor(sensor);
+				if (result == null) result = caseTask(sensor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CpsPackage.ACTUATOR: {
+				Actuator actuator = (Actuator)theEObject;
+				T result = caseActuator(actuator);
+				if (result == null) result = caseTask(actuator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CpsPackage.CONTROLLER: {
+				Controller controller = (Controller)theEObject;
+				T result = caseController(controller);
+				if (result == null) result = caseTask(controller);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CpsPackage.ALARM: {
+				Alarm alarm = (Alarm)theEObject;
+				T result = caseAlarm(alarm);
+				if (result == null) result = caseActuator(alarm);
+				if (result == null) result = caseTask(alarm);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CpsPackage.MOTION_DETECTOR: {
+				MotionDetector motionDetector = (MotionDetector)theEObject;
+				T result = caseMotionDetector(motionDetector);
+				if (result == null) result = caseSensor(motionDetector);
+				if (result == null) result = caseTask(motionDetector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CpsPackage.SMOKE_DETECTOR: {
+				SmokeDetector smokeDetector = (SmokeDetector)theEObject;
+				T result = caseSmokeDetector(smokeDetector);
+				if (result == null) result = caseSensor(smokeDetector);
+				if (result == null) result = caseTask(smokeDetector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CpsPackage.SERVER: {
+				Server server = (Server)theEObject;
+				T result = caseServer(server);
+				if (result == null) result = caseComputer(server);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CpsPackage.MAINFRAME: {
+				Mainframe mainframe = (Mainframe)theEObject;
+				T result = caseMainframe(mainframe);
+				if (result == null) result = caseComputer(mainframe);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -130,6 +189,126 @@ public class CpsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseComputer(Computer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sensor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSensor(Sensor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Actuator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Actuator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActuator(Actuator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Controller</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Controller</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseController(Controller object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Alarm</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Alarm</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAlarm(Alarm object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Motion Detector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Motion Detector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMotionDetector(MotionDetector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Smoke Detector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Smoke Detector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSmokeDetector(SmokeDetector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Server</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Server</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServer(Server object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mainframe</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mainframe</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMainframe(Mainframe object) {
 		return null;
 	}
 

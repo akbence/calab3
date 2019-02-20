@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see cps.CpsPackage#getComputer()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Computer extends EObject {

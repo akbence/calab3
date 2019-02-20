@@ -6,18 +6,13 @@ import cps.Computer;
 import cps.CpsPackage;
 import cps.Severity;
 import cps.Task;
-
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
+public abstract class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	/**
 	 * The default value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,14 +67,14 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 */
 	protected int reqSlot = REQ_SLOT_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getAllocatedTo() <em>Allocated To</em>}' reference list.
+	 * The cached value of the '{@link #getAllocatedTo() <em>Allocated To</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAllocatedTo()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Computer> allocatedTo;
+	protected Computer allocatedTo;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,6 +100,7 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Severity getSeverity() {
 		return severity;
 	}
@@ -114,6 +110,7 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSeverity(Severity newSeverity) {
 		Severity oldSeverity = severity;
 		severity = newSeverity == null ? SEVERITY_EDEFAULT : newSeverity;
@@ -126,6 +123,7 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getReqSlot() {
 		return reqSlot;
 	}
@@ -135,6 +133,7 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReqSlot(int newReqSlot) {
 		int oldReqSlot = reqSlot;
 		reqSlot = newReqSlot;
@@ -147,11 +146,61 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Computer> getAllocatedTo() {
-		if (allocatedTo == null) {
-			allocatedTo = new EObjectWithInverseResolvingEList.ManyInverse<Computer>(Computer.class, this, CpsPackage.TASK__ALLOCATED_TO, CpsPackage.COMPUTER__TASKS);
+	@Override
+	public Computer getAllocatedTo() {
+		if (allocatedTo != null && allocatedTo.eIsProxy()) {
+			InternalEObject oldAllocatedTo = (InternalEObject)allocatedTo;
+			allocatedTo = (Computer)eResolveProxy(oldAllocatedTo);
+			if (allocatedTo != oldAllocatedTo) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CpsPackage.TASK__ALLOCATED_TO, oldAllocatedTo, allocatedTo));
+			}
 		}
 		return allocatedTo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Computer basicGetAllocatedTo() {
+		return allocatedTo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAllocatedTo(Computer newAllocatedTo, NotificationChain msgs) {
+		Computer oldAllocatedTo = allocatedTo;
+		allocatedTo = newAllocatedTo;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CpsPackage.TASK__ALLOCATED_TO, oldAllocatedTo, newAllocatedTo);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAllocatedTo(Computer newAllocatedTo) {
+		if (newAllocatedTo != allocatedTo) {
+			NotificationChain msgs = null;
+			if (allocatedTo != null)
+				msgs = ((InternalEObject)allocatedTo).eInverseRemove(this, CpsPackage.COMPUTER__TASKS, Computer.class, msgs);
+			if (newAllocatedTo != null)
+				msgs = ((InternalEObject)newAllocatedTo).eInverseAdd(this, CpsPackage.COMPUTER__TASKS, Computer.class, msgs);
+			msgs = basicSetAllocatedTo(newAllocatedTo, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CpsPackage.TASK__ALLOCATED_TO, newAllocatedTo, newAllocatedTo));
 	}
 
 	/**
@@ -164,7 +213,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CpsPackage.TASK__ALLOCATED_TO:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAllocatedTo()).basicAdd(otherEnd, msgs);
+				if (allocatedTo != null)
+					msgs = ((InternalEObject)allocatedTo).eInverseRemove(this, CpsPackage.COMPUTER__TASKS, Computer.class, msgs);
+				return basicSetAllocatedTo((Computer)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -178,7 +229,7 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CpsPackage.TASK__ALLOCATED_TO:
-				return ((InternalEList<?>)getAllocatedTo()).basicRemove(otherEnd, msgs);
+				return basicSetAllocatedTo(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -196,7 +247,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 			case CpsPackage.TASK__REQ_SLOT:
 				return getReqSlot();
 			case CpsPackage.TASK__ALLOCATED_TO:
-				return getAllocatedTo();
+				if (resolve) return getAllocatedTo();
+				return basicGetAllocatedTo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -217,8 +269,7 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				setReqSlot((Integer)newValue);
 				return;
 			case CpsPackage.TASK__ALLOCATED_TO:
-				getAllocatedTo().clear();
-				getAllocatedTo().addAll((Collection<? extends Computer>)newValue);
+				setAllocatedTo((Computer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -239,7 +290,7 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 				setReqSlot(REQ_SLOT_EDEFAULT);
 				return;
 			case CpsPackage.TASK__ALLOCATED_TO:
-				getAllocatedTo().clear();
+				setAllocatedTo((Computer)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -258,7 +309,7 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 			case CpsPackage.TASK__REQ_SLOT:
 				return reqSlot != REQ_SLOT_EDEFAULT;
 			case CpsPackage.TASK__ALLOCATED_TO:
-				return allocatedTo != null && !allocatedTo.isEmpty();
+				return allocatedTo != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -272,7 +323,7 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (severity: ");
 		result.append(severity);
 		result.append(", reqSlot: ");

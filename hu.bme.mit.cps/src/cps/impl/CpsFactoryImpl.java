@@ -58,8 +58,12 @@ public class CpsFactoryImpl extends EFactoryImpl implements CpsFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case CpsPackage.CYBER_PHYSICAL_SYSTEM: return createCyberPhysicalSystem();
-			case CpsPackage.TASK: return createTask();
-			case CpsPackage.COMPUTER: return createComputer();
+			case CpsPackage.CONTROLLER: return createController();
+			case CpsPackage.ALARM: return createAlarm();
+			case CpsPackage.MOTION_DETECTOR: return createMotionDetector();
+			case CpsPackage.SMOKE_DETECTOR: return createSmokeDetector();
+			case CpsPackage.SERVER: return createServer();
+			case CpsPackage.MAINFRAME: return createMainframe();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -100,6 +104,7 @@ public class CpsFactoryImpl extends EFactoryImpl implements CpsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CyberPhysicalSystem createCyberPhysicalSystem() {
 		CyberPhysicalSystemImpl cyberPhysicalSystem = new CyberPhysicalSystemImpl();
 		return cyberPhysicalSystem;
@@ -110,9 +115,10 @@ public class CpsFactoryImpl extends EFactoryImpl implements CpsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Task createTask() {
-		TaskImpl task = new TaskImpl();
-		return task;
+	@Override
+	public Controller createController() {
+		ControllerImpl controller = new ControllerImpl();
+		return controller;
 	}
 
 	/**
@@ -120,9 +126,54 @@ public class CpsFactoryImpl extends EFactoryImpl implements CpsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Computer createComputer() {
-		ComputerImpl computer = new ComputerImpl();
-		return computer;
+	@Override
+	public Alarm createAlarm() {
+		AlarmImpl alarm = new AlarmImpl();
+		return alarm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MotionDetector createMotionDetector() {
+		MotionDetectorImpl motionDetector = new MotionDetectorImpl();
+		return motionDetector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SmokeDetector createSmokeDetector() {
+		SmokeDetectorImpl smokeDetector = new SmokeDetectorImpl();
+		return smokeDetector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Server createServer() {
+		ServerImpl server = new ServerImpl();
+		return server;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Mainframe createMainframe() {
+		MainframeImpl mainframe = new MainframeImpl();
+		return mainframe;
 	}
 
 	/**
@@ -150,6 +201,7 @@ public class CpsFactoryImpl extends EFactoryImpl implements CpsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CpsPackage getCpsPackage() {
 		return (CpsPackage)getEPackage();
 	}

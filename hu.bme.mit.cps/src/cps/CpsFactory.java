@@ -31,22 +31,58 @@ public interface CpsFactory extends EFactory {
 	CyberPhysicalSystem createCyberPhysicalSystem();
 
 	/**
-	 * Returns a new object of class '<em>Task</em>'.
+	 * Returns a new object of class '<em>Controller</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Task</em>'.
+	 * @return a new object of class '<em>Controller</em>'.
 	 * @generated
 	 */
-	Task createTask();
+	Controller createController();
 
 	/**
-	 * Returns a new object of class '<em>Computer</em>'.
+	 * Returns a new object of class '<em>Alarm</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Computer</em>'.
+	 * @return a new object of class '<em>Alarm</em>'.
 	 * @generated
 	 */
-	Computer createComputer();
+	Alarm createAlarm();
+
+	/**
+	 * Returns a new object of class '<em>Motion Detector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Motion Detector</em>'.
+	 * @generated
+	 */
+	MotionDetector createMotionDetector();
+
+	/**
+	 * Returns a new object of class '<em>Smoke Detector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Smoke Detector</em>'.
+	 * @generated
+	 */
+	SmokeDetector createSmokeDetector();
+
+	/**
+	 * Returns a new object of class '<em>Server</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Server</em>'.
+	 * @generated
+	 */
+	Server createServer();
+
+	/**
+	 * Returns a new object of class '<em>Mainframe</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mainframe</em>'.
+	 * @generated
+	 */
+	Mainframe createMainframe();
 
 	/**
 	 * Returns the package supported by this factory.

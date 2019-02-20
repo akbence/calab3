@@ -40,6 +40,70 @@
                   First EMF validation constraints. Names cannot be null.
                </description>
             </constraint>
+            <constraint
+                  class="cps.constraint.OnlyOneCriticalConstraint"
+                  id="hu.bme.mit.cps.validation.constraint2"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Only_one_critical_task"
+                  severity="ERROR"
+                  statusCode="201">
+               <message>
+                  Every computer should contain only one critical task!
+               </message>
+               <target
+                     class="Computer">
+               </target>
+            </constraint>
+            <constraint
+                  class="cps.constraint.CorrectSeverityLevelConstraint"
+                  id="hu.bme.mit.cps.validation.constraint3"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Correct_severity_level"
+                  severity="ERROR"
+                  statusCode="201">
+               <message>
+                  Severity level is incorrect!
+               </message>
+               <target
+                     class="Task">
+               </target>
+            </constraint>
+            <constraint
+                  class="cps.constraint.DifferentControllerTasksConstraint"
+                  id="hu.bme.mit.cps.validation.constraint4"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Different_controller_tasks"
+                  severity="ERROR"
+                  statusCode="201">
+               <message>
+                  A controller can have only one type of task!
+               </message>
+               <target
+                     class="Controller">
+               </target>
+            </constraint>
+            <constraint
+                  class="cps.constraint.AvailableSlotsConstraint"
+                  id="hu.bme.mit.cps.validation.constraint5"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Calculated_available_slots"
+                  severity="ERROR"
+                  statusCode="201">
+               <message>
+                  Incorrect available slots number!
+               </message>
+               <target
+                     class="Computer">
+               </target>
+            </constraint>
          </constraints>
       </constraintProvider>
    </extension>

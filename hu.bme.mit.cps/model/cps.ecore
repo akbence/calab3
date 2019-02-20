@@ -3,9 +3,9 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cps" nsURI="http://www.example.org/cps" nsPrefix="cps">
   <eClassifiers xsi:type="ecore:EClass" name="CyberPhysicalSystem">
     <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
-        eType="#//Task"/>
+        eType="#//Task" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="computers" upperBound="-1"
-        eType="#//Computer"/>
+        eType="#//Computer" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task" abstract="true">
@@ -13,7 +13,7 @@
         defaultValueLiteral="low"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reqSlot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="allocatedTo" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allocatedTo" lowerBound="1"
         eType="#//Computer" eOpposite="#//Computer/tasks"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Computer" abstract="true">
@@ -30,8 +30,8 @@
     <eLiterals name="high" value="2"/>
     <eLiterals name="critical" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//Task"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//Task"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" abstract="true" eSuperTypes="#//Task"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Actuator" abstract="true" eSuperTypes="#//Task"/>
   <eClassifiers xsi:type="ecore:EClass" name="Controller" eSuperTypes="#//Task">
     <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="2" upperBound="-1"
         eType="#//Task"/>

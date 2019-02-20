@@ -80,6 +80,38 @@ public class CpsAdapterFactory extends AdapterFactoryImpl {
 				return createComputerAdapter();
 			}
 			@Override
+			public Adapter caseSensor(Sensor object) {
+				return createSensorAdapter();
+			}
+			@Override
+			public Adapter caseActuator(Actuator object) {
+				return createActuatorAdapter();
+			}
+			@Override
+			public Adapter caseController(Controller object) {
+				return createControllerAdapter();
+			}
+			@Override
+			public Adapter caseAlarm(Alarm object) {
+				return createAlarmAdapter();
+			}
+			@Override
+			public Adapter caseMotionDetector(MotionDetector object) {
+				return createMotionDetectorAdapter();
+			}
+			@Override
+			public Adapter caseSmokeDetector(SmokeDetector object) {
+				return createSmokeDetectorAdapter();
+			}
+			@Override
+			public Adapter caseServer(Server object) {
+				return createServerAdapter();
+			}
+			@Override
+			public Adapter caseMainframe(Mainframe object) {
+				return createMainframeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -138,6 +170,118 @@ public class CpsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComputerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link cps.Sensor <em>Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see cps.Sensor
+	 * @generated
+	 */
+	public Adapter createSensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link cps.Actuator <em>Actuator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see cps.Actuator
+	 * @generated
+	 */
+	public Adapter createActuatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link cps.Controller <em>Controller</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see cps.Controller
+	 * @generated
+	 */
+	public Adapter createControllerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link cps.Alarm <em>Alarm</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see cps.Alarm
+	 * @generated
+	 */
+	public Adapter createAlarmAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link cps.MotionDetector <em>Motion Detector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see cps.MotionDetector
+	 * @generated
+	 */
+	public Adapter createMotionDetectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link cps.SmokeDetector <em>Smoke Detector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see cps.SmokeDetector
+	 * @generated
+	 */
+	public Adapter createSmokeDetectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link cps.Server <em>Server</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see cps.Server
+	 * @generated
+	 */
+	public Adapter createServerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link cps.Mainframe <em>Mainframe</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see cps.Mainframe
+	 * @generated
+	 */
+	public Adapter createMainframeAdapter() {
 		return null;
 	}
 

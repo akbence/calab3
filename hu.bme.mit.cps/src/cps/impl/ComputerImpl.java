@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ComputerImpl extends MinimalEObjectImpl.Container implements Computer {
+public abstract class ComputerImpl extends MinimalEObjectImpl.Container implements Computer {
 	/**
 	 * The default value of the '{@link #getDefaultSlots() <em>Default Slots</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -104,6 +104,7 @@ public class ComputerImpl extends MinimalEObjectImpl.Container implements Comput
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getDefaultSlots() {
 		return defaultSlots;
 	}
@@ -113,6 +114,7 @@ public class ComputerImpl extends MinimalEObjectImpl.Container implements Comput
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefaultSlots(int newDefaultSlots) {
 		int oldDefaultSlots = defaultSlots;
 		defaultSlots = newDefaultSlots;
@@ -125,6 +127,7 @@ public class ComputerImpl extends MinimalEObjectImpl.Container implements Comput
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getAvailableSlots() {
 		return availableSlots;
 	}
@@ -134,6 +137,7 @@ public class ComputerImpl extends MinimalEObjectImpl.Container implements Comput
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAvailableSlots(int newAvailableSlots) {
 		int oldAvailableSlots = availableSlots;
 		availableSlots = newAvailableSlots;
@@ -146,9 +150,10 @@ public class ComputerImpl extends MinimalEObjectImpl.Container implements Comput
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Task> getTasks() {
 		if (tasks == null) {
-			tasks = new EObjectWithInverseResolvingEList.ManyInverse<Task>(Task.class, this, CpsPackage.COMPUTER__TASKS, CpsPackage.TASK__ALLOCATED_TO);
+			tasks = new EObjectWithInverseResolvingEList<Task>(Task.class, this, CpsPackage.COMPUTER__TASKS, CpsPackage.TASK__ALLOCATED_TO);
 		}
 		return tasks;
 	}
@@ -271,7 +276,7 @@ public class ComputerImpl extends MinimalEObjectImpl.Container implements Comput
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (defaultSlots: ");
 		result.append(defaultSlots);
 		result.append(", availableSlots: ");

@@ -2,7 +2,6 @@
  */
 package cps;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see cps.CpsPackage#getTask()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Task extends EObject {
@@ -83,8 +82,7 @@ public interface Task extends EObject {
 	void setReqSlot(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Allocated To</b></em>' reference list.
-	 * The list contents are of type {@link cps.Computer}.
+	 * Returns the value of the '<em><b>Allocated To</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link cps.Computer#getTasks <em>Tasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -92,11 +90,22 @@ public interface Task extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Allocated To</em>' reference list.
+	 * @return the value of the '<em>Allocated To</em>' reference.
+	 * @see #setAllocatedTo(Computer)
 	 * @see cps.CpsPackage#getTask_AllocatedTo()
 	 * @see cps.Computer#getTasks
-	 * @model opposite="tasks"
+	 * @model opposite="tasks" required="true"
 	 * @generated
 	 */
-	EList<Computer> getAllocatedTo();
+	Computer getAllocatedTo();
+
+	/**
+	 * Sets the value of the '{@link cps.Task#getAllocatedTo <em>Allocated To</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Allocated To</em>' reference.
+	 * @see #getAllocatedTo()
+	 * @generated
+	 */
+	void setAllocatedTo(Computer value);
 } // Task
