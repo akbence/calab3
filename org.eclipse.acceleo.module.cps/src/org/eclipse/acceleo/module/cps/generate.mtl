@@ -2,7 +2,7 @@
 [**
  * The documentation of the module generate.
  */]
-[module generate('http://www.example.org/cps')]
+[module generate('http://www.example.org/cps', 'http://www.eclipse.org/emf/2002/Ecore')]
 
 
 [**
@@ -23,6 +23,16 @@
 		[elseif (task.severity = Severity::critical)]
 			[task.eClass().name/] critical
 		[/if]
+	[/for]
+	[for (task : EEnum | cps.eClass().ePackage.eClassifiers -> filter(EEnum))]
+		enum [task.name /] {
+			[for (literal : EEnumLiteral | task.eLiterals)]
+				[literal /],
+			[/for]		
+		}	
+	[/for]
+	[for (task : EClass | cps.eClass().ePackage.eClassifiers -> filter(EClass))]
+		
 	[/for]
 [/file]
 [/template]

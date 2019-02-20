@@ -435,7 +435,7 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_NlHpoNpoEeW2Nv1t3qRqTg" name="Computer" tooltipText="&#xA;WARNING : This ExtendedMetaData annotation detail will be ignored because the key '' is not recognized" incomingEdges="_a1vLINpoEeW2Nv1t3qRqTg _bemQANpqEeW2Nv1t3qRqTg _eE0R9jTmEemDoOmd4lAalA _hxgmJjTmEemDoOmd4lAalA" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_NlHpoNpoEeW2Nv1t3qRqTg" name="Computer" tooltipText="" incomingEdges="_a1vLINpoEeW2Nv1t3qRqTg _bemQANpqEeW2Nv1t3qRqTg _eE0R9jTmEemDoOmd4lAalA _hxgmJjTmEemDoOmd4lAalA" width="12" height="10">
       <target xmi:type="ecore:EClass" href="cps.ecore#//Computer"/>
       <semanticElements xmi:type="ecore:EClass" href="cps.ecore#//Computer"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
