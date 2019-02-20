@@ -1,0 +1,28 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module generate.
+ */]
+[module generate('http://www.example.org/cps')]
+
+
+[**
+ * The documentation of the template generate.
+ * @param aComputer
+ */]
+[template public generate(cps : CyberPhysicalSystem)]
+[comment @main/]
+[file ('cps.txt', false, 'UTF-8')]
+	Hello ACCELEO World
+	[for (task : Task | cps.tasks)]
+		[if (task.severity = Severity::low)]
+			[task.eClass().name /] low
+		[elseif (task.severity = Severity::medium)]
+			[task.eClass().name/] medium
+		[elseif (task.severity = Severity::high)]
+			[task.eClass().name/] high
+		[elseif (task.severity = Severity::critical)]
+			[task.eClass().name/] critical
+		[/if]
+	[/for]
+[/file]
+[/template]

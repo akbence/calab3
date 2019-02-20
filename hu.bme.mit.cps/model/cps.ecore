@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cps" nsURI="http://www.example.org/cps" nsPrefix="cps">
+  <eClassifiers xsi:type="ecore:EClass" name="CyberPhysicalSystem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
+        eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="computers" upperBound="-1"
+        eType="#//Computer"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="#//Severity"
+        defaultValueLiteral="low"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reqSlot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allocatedTo" upperBound="-1"
+        eType="#//Computer" eOpposite="#//Computer/tasks"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Computer" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultSlots" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="availableSlots" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
+        eType="#//Task" eOpposite="#//Task/allocatedTo"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Severity">
+    <eLiterals name="low"/>
+    <eLiterals name="medium" value="1"/>
+    <eLiterals name="high" value="2"/>
+    <eLiterals name="critical" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//Task"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//Task"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Controller" eSuperTypes="#//Task">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="2" upperBound="-1"
+        eType="#//Task"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Alarm" eSuperTypes="#//Actuator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MotionDetector" eSuperTypes="#//Sensor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SmokeDetector" eSuperTypes="#//Sensor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Server" eSuperTypes="#//Computer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Mainframe" eSuperTypes="#//Computer"/>
+</ecore:EPackage>

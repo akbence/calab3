@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="hu.bme.mit.cps.validation.CpsStartup">
+      </startup>
+   </extension>
+   <extension
+         id="hu.bme.mit.cps.validator"
+         name="EValidator Example"
+         point="org.eclipse.emf.validation.constraintProviders">
+      <category
+            id="hu.bme.mit.cps.validation.category"
+            name="cps-category">
+      </category>
+      <constraintProvider
+            cache="true">
+         <package
+               namespaceUri="http://www.example.org/cps">
+         </package>
+         <constraints
+               categories="hu.bme.mit.cps.validation.category">
+            <constraint
+                  class="cps.constraint.NonEmptyNamesConstraint"
+                  id="hu.bme.mit.cps.validation.constraint1"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Name_not_null"
+                  severity="WARNING"
+                  statusCode="201">
+               <message>
+                  The &quot;{0}&quot; element&apos;s name attribute is not filled
+               </message>
+               <target
+                     class="CyberPhysicalSystem"></target>
+               <description>
+                  First EMF validation constraints. Names cannot be null.
+               </description>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+   <extension
+         point="org.eclipse.emf.validation.constraintBindings">
+      <clientContext
+            default="true"
+            id="hu.bme.mit.cps.validation.clientContext">
+         <selector
+               class="hu.bme.mit.cps.validation.ValidationDelegateClientSelector">
+         </selector>
+      </clientContext>
+      <binding
+            category="hu.bme.mit.cps.validation.category"
+            context="hu.bme.mit.cps.validation.clientContext">
+      </binding>
+   </extension>
+
+</plugin>
